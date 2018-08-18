@@ -16,4 +16,14 @@ public class Jogo {
 		return marcaPrimeiroJogadorX;
 	}
 
+	public void desenharMarca(int linha, int coluna) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean isMarcaXNaPosicao(int linha, int coluna) {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
 }

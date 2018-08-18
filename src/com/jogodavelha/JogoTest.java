@@ -27,5 +27,10 @@ public class JogoTest {
 		jogo.setMarcaPrimeiroJogadorX(false);//O
 		assertFalse("O primeiro jogador escolheu bola",jogo.isMarcaPrimeiroJogadorX());//true
 	}
+	public void desenharPrimeiraMarca() {
+		jogo.setMarcaPrimeiroJogadorX(true);//X
+		jogo.desenharMarca(1,0);//X
+		assertTrue(jogo.isMarcaXNaPosicao(1,0));
+	}
 
 }
