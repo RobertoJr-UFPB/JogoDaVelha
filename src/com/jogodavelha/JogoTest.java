@@ -75,4 +75,8 @@ public class JogoTest {
 		jogo.desenharMarca(0, 1); // Inicio do jogo
 		jogo.setMarcaPrimeiroJogadorX(true);//Tentou trocar a marca
 	}
+	@Test(expected=ExcecaoJogoDaVelha.class)
+	public void desenharMarcaAntesDeDefinirOPrimeiroJogador() {
+		jogo.desenharMarca(0, 1); // Inicio do jogo
+	}
 }

@@ -2,7 +2,7 @@ package com.jogodavelha;
 
 public class Jogo {
 
-	private boolean marcaPrimeiroJogadorX;
+	private Boolean marcaPrimeiroJogadorX;
 	private Boolean[][] tabuleiro = new Boolean[3][3];
 	private boolean iniciou;
 
@@ -24,6 +24,9 @@ public class Jogo {
 	public void desenharMarca(int linha, int coluna) {
 		verificarLimites(linha, coluna);
 		if (tabuleiro[linha][coluna] != null) {
+			lancarExcecao();
+		}
+		if(marcaPrimeiroJogadorX == null) {
 			lancarExcecao();
 		}
 		tabuleiro[linha][coluna] = marcaPrimeiroJogadorX;
