@@ -1,6 +1,8 @@
 package com.jogodavelha;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -85,5 +87,25 @@ public class JogoTest {
 		jogo.desenharMarca(1,0);//X
 		jogo.desenharMarca(1,1);//O
 		assertFalse(jogo.isMarcaXNaPosicao(1,1));
+	}
+	@Test
+	public void jogoGanhoAtravesDeColuna() {
+		jogo.setMarcaPrimeiroJogadorX(false);
+		jogo.desenharMarca(0, 0);
+		jogo.desenharMarca(1, 2);
+		jogo.desenharMarca(1, 0);
+		jogo.desenharMarca(2, 2);
+		jogo.desenharMarca(2, 0);
+		assertTrue("Esperava que o jogo tivesse acabado", jogo.acabou());
+	}
+	@Test
+	public void jogoGanhoAtravesDeLinha() {
+		jogo.setMarcaPrimeiroJogadorX(false);
+		jogo.desenharMarca(0, 0);
+		jogo.desenharMarca(1, 2);
+		jogo.desenharMarca(1, 0);
+		jogo.desenharMarca(2, 2);
+		jogo.desenharMarca(2, 0);
+		assertTrue("Esperava que o jogo tivesse acabado", jogo.acabou());
 	}
 }
