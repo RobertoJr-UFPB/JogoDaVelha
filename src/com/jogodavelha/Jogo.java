@@ -2,19 +2,18 @@ package com.jogodavelha;
 
 public class Jogo {
 
+	private boolean marcaPrimeiroJogadorX;
+
 	public boolean acabou() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	public void setMarcaPrimeiroJogadorX(boolean marcaPrimeiroJogadorX) {
-		// TODO Auto-generated method stub
-		
+		this.marcaPrimeiroJogadorX = marcaPrimeiroJogadorX;		
 	}
 
 	public boolean isMarcaPrimeiroJogadorX() {
-		// TODO Auto-generated method stub
-		return true;
+		return marcaPrimeiroJogadorX;
 	}
 
 }

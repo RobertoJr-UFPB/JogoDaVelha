@@ -2,20 +2,30 @@ package com.jogodavelha;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class JogoTest {
-
+	private Jogo jogo;
+	
+	@Before
+	public void novoJogo() {
+		jogo = new Jogo();
+	}
 	@Test
 	public void criarJogo() {
-		Jogo jogo = new Jogo();
 		assertFalse("O jogo iniciou finalizado", jogo.acabou());
 	}
 	@Test
 	public void definirPrimeiroJogador() {
-		Jogo jogo = new Jogo();
 		jogo.setMarcaPrimeiroJogadorX(true);
 		assertTrue("O primeiro jogador escolheu bola",jogo.isMarcaPrimeiroJogadorX());//true
+	}
+	@Test
+	public void definirPrimeiroJogadorDeNovo() {
+		jogo.setMarcaPrimeiroJogadorX(true);//X
+		jogo.setMarcaPrimeiroJogadorX(false);//O
+		assertFalse("O primeiro jogador escolheu bola",jogo.isMarcaPrimeiroJogadorX());//true
 	}
 
 }
