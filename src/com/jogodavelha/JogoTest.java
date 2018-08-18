@@ -52,9 +52,15 @@ public class JogoTest {
 		
 	}
 	@Test
-	public void lerDeUmaCelulaDesocupada() {
+	public void lerMarcaDeUmaColunaErrada() {
 		jogo.setMarcaPrimeiroJogadorX(false);//O
-		assertNull(jogo.isMarcaXNaPosicao(0, 0));
+		assertNull(jogo.isMarcaXNaPosicao(0, 3));
+		
+	}
+	@Test
+	public void lerMarcaDeUmaLinhaErrada() {
+		jogo.setMarcaPrimeiroJogadorX(false);//O
+		assertNull(jogo.isMarcaXNaPosicao(-1, 0));
 		
 	}
 
