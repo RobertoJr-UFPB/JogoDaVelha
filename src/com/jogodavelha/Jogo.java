@@ -7,4 +7,14 @@ public class Jogo {
 		return false;
 	}
 
+	public void setMarcaPrimeiroJogadorX(boolean marcaPrimeiroJogadorX) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean isMarcaPrimeiroJogadorX() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
 }
