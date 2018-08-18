@@ -51,5 +51,11 @@ public class JogoTest {
 		jogo.desenharMarca(-1,4);//linha , coluna
 		
 	}
+	@Test
+	public void lerDeUmaCelulaDesocupada() {
+		jogo.setMarcaPrimeiroJogadorX(false);//O
+		assertNull(jogo.isMarcaXNaPosicao(0, 0));
+		
+	}
 
 }
