@@ -38,6 +38,11 @@ public class JogoTest {
 		jogo.setMarcaPrimeiroJogadorX(true);//X
 		jogo.desenharMarca(1,0);//X
 		jogo.desenharMarca(1,0);//X
+	}
+	@Test(expected=ExcecaoJogoDaVelha.class)
+	public void desenharEmColunaErrada() {
+		jogo.setMarcaPrimeiroJogadorX(false);//O
+		jogo.desenharMarca(1,4);//linha , coluna
 		
 	}
 

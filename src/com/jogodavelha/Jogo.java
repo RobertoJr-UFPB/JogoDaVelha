@@ -3,14 +3,14 @@ package com.jogodavelha;
 public class Jogo {
 
 	private boolean marcaPrimeiroJogadorX;
-	private Boolean[][] tabuleiro = new Boolean [3][3];
+	private Boolean[][] tabuleiro = new Boolean[3][3];
 
 	public boolean acabou() {
 		return false;
 	}
 
 	public void setMarcaPrimeiroJogadorX(boolean marcaPrimeiroJogadorX) {
-		this.marcaPrimeiroJogadorX = marcaPrimeiroJogadorX;		
+		this.marcaPrimeiroJogadorX = marcaPrimeiroJogadorX;
 	}
 
 	public boolean isMarcaPrimeiroJogadorX() {
@@ -18,10 +18,18 @@ public class Jogo {
 	}
 
 	public void desenharMarca(int linha, int coluna) {
-		if(tabuleiro[linha][coluna] != null ) {
-			throw new ExcecaoJogoDaVelha();
+		if (coluna < 0 || coluna > 2) {
+			lancarExcecao();
 		}
-		tabuleiro[linha][coluna] = marcaPrimeiroJogadorX;		
+		if (tabuleiro[linha][coluna] != null) {
+			lancarExcecao();
+		}
+
+		tabuleiro[linha][coluna] = marcaPrimeiroJogadorX;
+	}
+
+	private void lancarExcecao() {
+		throw new ExcecaoJogoDaVelha();
 	}
 
 	public boolean isMarcaXNaPosicao(int linha, int coluna) {
