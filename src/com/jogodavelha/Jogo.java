@@ -3,6 +3,7 @@ package com.jogodavelha;
 public class Jogo {
 
 	private boolean marcaPrimeiroJogadorX;
+	private Boolean[][] tabuleiro = new Boolean [3][3];
 
 	public boolean acabou() {
 		return false;
@@ -17,8 +18,10 @@ public class Jogo {
 	}
 
 	public void desenharMarca(int linha, int coluna) {
-		// TODO Auto-generated method stub
-		
+		if(tabuleiro[linha][coluna] != null ) {
+			throw new ExcecaoJogoDaVelha();
+		}
+		tabuleiro[linha][coluna] = marcaPrimeiroJogadorX;		
 	}
 
 	public boolean isMarcaXNaPosicao(int linha, int coluna) {
