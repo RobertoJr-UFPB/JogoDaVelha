@@ -7,8 +7,9 @@ import org.junit.Test;
 public class JogoTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void criarJogo() {
+		Jogo jogo = new Jogo();
+		assertFalse("O jogo iniciou finalizado", jogo.acabou());
 	}
 
 }
