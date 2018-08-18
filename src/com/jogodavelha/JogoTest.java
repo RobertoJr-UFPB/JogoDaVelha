@@ -45,23 +45,34 @@ public class JogoTest {
 		jogo.desenharMarca(1,4);//linha , coluna
 		
 	}
+	@Test
+	public void lerDeCelulaDesocupada() {
+		jogo.setMarcaPrimeiroJogadorX(false);//O
+		assertNull(jogo.isMarcaXNaPosicao(0, 0));//linha , coluna
+		
+	}
 	@Test(expected=ExcecaoJogoDaVelha.class)
 	public void desenharEmLinhaErrada() {
 		jogo.setMarcaPrimeiroJogadorX(false);//O
 		jogo.desenharMarca(-1,4);//linha , coluna
 		
 	}
-	@Test
+	@Test(expected=ExcecaoJogoDaVelha.class)
 	public void lerMarcaDeUmaColunaErrada() {
 		jogo.setMarcaPrimeiroJogadorX(false);//O
-		assertNull(jogo.isMarcaXNaPosicao(0, 3));
+		jogo.isMarcaXNaPosicao(0, 3);
 		
 	}
-	@Test
+	@Test(expected=ExcecaoJogoDaVelha.class)
 	public void lerMarcaDeUmaLinhaErrada() {
 		jogo.setMarcaPrimeiroJogadorX(false);//O
-		assertNull(jogo.isMarcaXNaPosicao(-1, 0));
+		jogo.isMarcaXNaPosicao(-1, 0);
 		
 	}
-
+	@Test(expected=ExcecaoJogoDaVelha.class)
+	public void definirPrimeiroJogadorAposInicioDoJogo() {
+		jogo.setMarcaPrimeiroJogadorX(true);//X
+		jogo.desenharMarca(0, 1); // Inicio do jogo
+		jogo.setMarcaPrimeiroJogadorX(true);//Tentou trocar a marca
+	}
 }
