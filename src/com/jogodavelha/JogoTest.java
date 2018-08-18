@@ -42,7 +42,7 @@ public class JogoTest {
 	@Test(expected=ExcecaoJogoDaVelha.class)
 	public void desenharEmColunaErrada() {
 		jogo.setMarcaPrimeiroJogadorX(false);//O
-		jogo.desenharMarca(1,4);//linha , coluna
+		jogo.desenharMarca(-1,4);//linha , coluna
 		
 	}
 
