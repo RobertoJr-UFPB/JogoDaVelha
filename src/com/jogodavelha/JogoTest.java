@@ -90,7 +90,7 @@ public class JogoTest {
 	}
 	@Test
 	public void jogoGanhoAtravesDeColuna() {
-		jogo.setMarcaPrimeiroJogadorX(false);
+		jogo.setMarcaPrimeiroJogadorX(true);
 		jogo.desenharMarca(0, 0);
 		jogo.desenharMarca(1, 2);
 		jogo.desenharMarca(1, 0);
@@ -100,7 +100,7 @@ public class JogoTest {
 	}
 	@Test
 	public void jogoGanhoAtravesDeLinha() {
-		jogo.setMarcaPrimeiroJogadorX(false);
+		jogo.setMarcaPrimeiroJogadorX(true);
 		jogo.desenharMarca(0, 0);
 		jogo.desenharMarca(1, 2);
 		jogo.desenharMarca(1, 0);
@@ -110,12 +110,22 @@ public class JogoTest {
 	}
 	@Test
 	public void jogoGanhoAtravesDeDiagonal() {
-		jogo.setMarcaPrimeiroJogadorX(false);
+		jogo.setMarcaPrimeiroJogadorX(true);
 		jogo.desenharMarca(0, 2);
 		jogo.desenharMarca(0, 0);
 		jogo.desenharMarca(1, 1);
 		jogo.desenharMarca(2, 2);
 		jogo.desenharMarca(2, 0);
 		assertTrue("Esperava que o jogo tivesse acabado", jogo.acabou());
+	}
+	@Test(expected=ExcecaoJogoDaVelha.class)
+	public void desenharMarcaAposOJogoAcabar() {
+		jogo.setMarcaPrimeiroJogadorX(false);
+		jogo.desenharMarca(0, 2);
+		jogo.desenharMarca(0, 0);
+		jogo.desenharMarca(1, 1);
+		jogo.desenharMarca(2, 2);
+		jogo.desenharMarca(2, 0);
+		jogo.desenharMarca(2, 1);
 	}
 }

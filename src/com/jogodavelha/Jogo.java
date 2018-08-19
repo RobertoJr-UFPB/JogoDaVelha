@@ -7,17 +7,16 @@ public class Jogo {
 	private boolean iniciou;
 
 	public boolean acabou() {
-
 		return ganhouLinha() || ganhouColuna() || ganhouDiagonal();
 
 	}
 
 	private boolean ganhouDiagonal() {
 
-		if (tabuleiro[0][0] != null && tabuleiro[0][0] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][2]) {
+		if (tabuleiro[1][1] != null && tabuleiro[0][0] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][2]) {
 			return true;
 		}
-		if (tabuleiro[0][0] != null && tabuleiro[0][2] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][0]) {
+		if (tabuleiro[1][1] != null && tabuleiro[0][2] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][0]) {
 			return true;
 		}
 		return false;
@@ -25,7 +24,7 @@ public class Jogo {
 
 	private boolean ganhouColuna() {
 		for (int i = 0; i < 3; i++) {
-			if (tabuleiro[0][i] != null && tabuleiro[0][i] == tabuleiro[0][i] && tabuleiro[0][i] == tabuleiro[0][i]) {
+			if (tabuleiro[0][i] != null && tabuleiro[0][i] == tabuleiro[1][i] && tabuleiro[1][i] == tabuleiro[2][i]) {
 				return true;
 			}
 		}
@@ -34,7 +33,7 @@ public class Jogo {
 
 	private boolean ganhouLinha() {
 		for (int k = 0; k < 3; k++) {
-			if (tabuleiro[k][0] != null && tabuleiro[k][0] == tabuleiro[k][0] && tabuleiro[k][0] == tabuleiro[k][0]) {
+			if (tabuleiro[k][0] != null && tabuleiro[k][0] == tabuleiro[k][1] && tabuleiro[k][1] == tabuleiro[k][2]) {
 				return true;
 			}
 		}
@@ -59,6 +58,9 @@ public class Jogo {
 			lancarExcecao();
 		}
 		if (proximaJogada == null) {
+			lancarExcecao();
+		}
+		if(acabou()) {
 			lancarExcecao();
 		}
 		tabuleiro[linha][coluna] = proximaJogada;
