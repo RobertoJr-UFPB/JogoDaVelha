@@ -108,4 +108,14 @@ public class JogoTest {
 		jogo.desenharMarca(2, 0);
 		assertTrue("Esperava que o jogo tivesse acabado", jogo.acabou());
 	}
+	@Test
+	public void jogoGanhoAtravesDeDiagonal() {
+		jogo.setMarcaPrimeiroJogadorX(false);
+		jogo.desenharMarca(0, 2);
+		jogo.desenharMarca(0, 0);
+		jogo.desenharMarca(1, 1);
+		jogo.desenharMarca(2, 2);
+		jogo.desenharMarca(2, 0);
+		assertTrue("Esperava que o jogo tivesse acabado", jogo.acabou());
+	}
 }

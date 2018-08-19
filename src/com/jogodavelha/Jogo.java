@@ -8,8 +8,19 @@ public class Jogo {
 
 	public boolean acabou() {
 
-		return ganhouLinha() || ganhouColuna();
+		return ganhouLinha() || ganhouColuna() || ganhouDiagonal();
 
+	}
+
+	private boolean ganhouDiagonal() {
+
+		if (tabuleiro[0][0] != null && tabuleiro[0][0] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][2]) {
+			return true;
+		}
+		if (tabuleiro[0][0] != null && tabuleiro[0][2] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][0]) {
+			return true;
+		}
+		return false;
 	}
 
 	private boolean ganhouColuna() {
