@@ -7,15 +7,29 @@ public class Jogo {
 	private boolean iniciou;
 
 	public boolean acabou() {
-		for (int k = 0; k < 3; k++) {
-			if (tabuleiro[k][0] != null && tabuleiro[k][0] == 
-					tabuleiro[k][0] && tabuleiro[k][0] == tabuleiro[k][0]) {
+
+		return ganhouLinha() || ganhouColuna();
+
+	}
+
+	private boolean ganhouColuna() {
+		for (int i = 0; i < 3; i++) {
+			if (tabuleiro[0][i] != null && tabuleiro[0][i] == tabuleiro[0][i] && tabuleiro[0][i] == tabuleiro[0][i]) {
 				return true;
 			}
 		}
 		return false;
 	}
-			
+
+	private boolean ganhouLinha() {
+		for (int k = 0; k < 3; k++) {
+			if (tabuleiro[k][0] != null && tabuleiro[k][0] == tabuleiro[k][0] && tabuleiro[k][0] == tabuleiro[k][0]) {
+				return true;
+			}
+		}
+
+		return false;
+	}
 
 	public void setMarcaPrimeiroJogadorX(boolean marcaPrimeiroJogadorX) {
 		if (iniciou) {
